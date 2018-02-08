@@ -17,7 +17,7 @@ public class Serialization {
 	
 	public void methodWithReturn(int varOne, ClassTwo varTwo) {
 		String st1 = "this new string is: ";
-		st1 += varOne + varTwo.getValue();
+		st1 += varOne + "_" + varTwo.getValue();
 		System.out.println("the result is: " + st1); 
-	}
+	}	
 }
