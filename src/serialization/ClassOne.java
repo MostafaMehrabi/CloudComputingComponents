@@ -2,7 +2,7 @@ package serialization;
 
 import java.io.Serializable;
 
-public class ClassOne implements Serializable {
+public class ClassOne implements Serializable{
 
 	/**
 	 * 

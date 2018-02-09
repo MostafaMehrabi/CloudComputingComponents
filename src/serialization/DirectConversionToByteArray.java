@@ -11,7 +11,7 @@ public class DirectConversionToByteArray {
 	}
 	
 	public Serialization createObject() {
-		Serialization ser = new Serialization(new ClassOne(52), new ClassTwo("Example"));
+		Serialization ser = new Serialization(new ClassOne(52), new ClassTwo("Mike", 45));
 		return ser;
 	}
 	
@@ -38,6 +38,8 @@ public class DirectConversionToByteArray {
 			ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bytes);
 			ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
 			ser = (Serialization)objectInputStream.readObject();
+			byteArrayInputStream.close();
+			objectInputStream.close();
 		}catch(Exception e) {
 			System.err.println("ERROR WHEN DE-SERIALIZING BYTE ARRAY");
 			e.printStackTrace();
@@ -51,6 +53,7 @@ public class DirectConversionToByteArray {
 		byte[] bytes = dconv.covertToByteArray(ser);
 		Serialization serial = dconv.deSerialize(bytes);
 		serial.methodNoReturn(54, 22);
-		serial.methodWithReturn(12, new ClassTwo("Please work"));
+		serial.methodWithReturn(12, new ClassTwo("Amy", 12));
+		serial.methodPrintList();
 	}
 }
