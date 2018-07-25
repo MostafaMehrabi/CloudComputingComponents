@@ -1,0 +1,13 @@
+sub-images preparation for image1 took: 31083
+sub-images preparation for image2 took: 31995
+sub-images preparation for image3 took: 32258
+sub-images preparation for image4 took: 115892
+sub-images preparation for image5 took: 185700
+Joint image of .\images\image1.jpg is size: 972 x 718
+Joint image of .\images\image2.jpg is size: 972 x 718
+Joint image of .\images\image3.jpg is size: 972 x 718
+Joint image of .\images\image4.jpg is size: 1920 x 1200
+Joint image of .\images\image5.jpg is size: 2560 x 1440
+benchmark started: 18:31:32
+benchmark ended: 18:41:25
+

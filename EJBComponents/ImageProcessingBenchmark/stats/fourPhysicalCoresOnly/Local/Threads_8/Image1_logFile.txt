@@ -1,0 +1,40 @@
+Sub-image 0 was initially processed between 12:24:34, and 12:24:46
+Image 0 local gray-scaling started at 12:24:59, ended at 12:25:9 by thread 21.
+Image 0 local errosion started at 12:25:40, ended at 12:25:55 by thread 23.
+
+
+Sub-image 1 was initially processed between 12:24:34, and 12:24:47
+Image 1 local gray-scaling started at 12:24:59, ended at 12:25:9 by thread 23.
+Image 1 local errosion started at 12:25:40, ended at 12:25:55 by thread 21.
+
+
+Sub-image 2 was initially processed between 12:24:34, and 12:24:46
+Image 2 local gray-scaling started at 12:24:59, ended at 12:25:10 by thread 20.
+Image 2 local errosion started at 12:25:41, ended at 12:25:55 by thread 22.
+
+
+Sub-image 3 was initially processed between 12:24:34, and 12:24:46
+Image 3 local gray-scaling started at 12:24:59, ended at 12:25:9 by thread 22.
+Image 3 local errosion started at 12:25:40, ended at 12:25:56 by thread 20.
+
+
+Sub-image 4 was initially processed between 12:24:46, and 12:24:58
+Image 4 local gray-scaling started at 12:25:9, ended at 12:25:18 by thread 21.
+Image 4 local errosion started at 12:25:55, ended at 12:26:17 by thread 23.
+
+
+Sub-image 5 was initially processed between 12:24:46, and 12:24:58
+Image 5 local gray-scaling started at 12:25:9, ended at 12:25:18 by thread 23.
+Image 5 local errosion started at 12:25:55, ended at 12:26:17 by thread 22.
+
+
+Sub-image 6 was initially processed between 12:24:46, and 12:24:59
+Image 6 local gray-scaling started at 12:25:9, ended at 12:25:19 by thread 22.
+Image 6 local errosion started at 12:25:56, ended at 12:26:18 by thread 20.
+
+
+Sub-image 7 was initially processed between 12:24:47, and 12:24:59
+Image 7 local gray-scaling started at 12:25:10, ended at 12:25:18 by thread 20.
+Image 7 local errosion started at 12:25:55, ended at 12:26:17 by thread 21.
+
+

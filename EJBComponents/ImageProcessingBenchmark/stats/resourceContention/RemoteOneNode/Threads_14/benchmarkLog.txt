@@ -1,0 +1,17 @@
+sub-images preparation for image1 took: 21544
+sub-images preparation for image2 took: 21634
+sub-images preparation for image3 took: 21622
+sub-images preparation for image4 took: 70733
+sub-images preparation for image5 took: 113011
+Joint image of .\images\image1.jpg is size: 972 x 718
+Joint image of .\images\image2.jpg is size: 972 x 718
+Joint image of .\images\image3.jpg is size: 972 x 718
+Joint image of .\images\image4.jpg is size: 1920 x 1200
+Joint image of .\images\image5.jpg is size: 2560 x 1440
+benchmark started: 20:54:40
+benchmark ended: 21:4:18
+
+>> In addition to performance, another advantage is the responsiveness of the local machine
+>> considering that the cloud tasks are submitted and waited for by only one thread, therefore
+>> the local machine becomes more responsive compared to when the entire process is performed 
+>> on the local machine. 

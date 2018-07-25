@@ -1,0 +1,80 @@
+Sub-image 0 was initially processed between 18:4:27, and 18:5:23
+Image 0 remote gray-scaling started at 6:7:3, ended at 6:13:15 by thread 100.
+Image 0 remote errosion started at 6:13:16, ended at 6:13:17 by thread 88.
+
+
+Sub-image 1 was initially processed between 18:4:27, and 18:5:23
+Image 1 remote gray-scaling started at 6:6:59, ended at 6:13:16 by thread 166.
+Image 1 remote errosion started at 6:13:18, ended at 6:13:18 by thread 93.
+
+
+Sub-image 2 was initially processed between 18:4:27, and 18:5:23
+Image 2 remote gray-scaling started at 6:7:0, ended at 6:13:12 by thread 109.
+Image 2 remote errosion started at 6:13:13, ended at 6:13:14 by thread 109.
+
+
+Sub-image 3 was initially processed between 18:4:27, and 18:5:23
+Image 3 remote gray-scaling started at 6:7:3, ended at 6:13:16 by thread 111.
+Image 3 remote errosion started at 6:13:17, ended at 6:13:18 by thread 162.
+
+
+Sub-image 4 was initially processed between 18:4:27, and 18:5:23
+Image 4 remote gray-scaling started at 6:6:57, ended at 6:13:16 by thread 170.
+Image 4 remote errosion started at 6:13:18, ended at 6:13:18 by thread 152.
+
+
+Sub-image 5 was initially processed between 18:4:27, and 18:5:23
+Image 5 remote gray-scaling started at 6:7:3, ended at 6:13:17 by thread 93.
+Image 5 remote errosion started at 6:13:19, ended at 6:13:19 by thread 177.
+
+
+Sub-image 6 was initially processed between 18:4:27, and 18:5:23
+Image 6 remote gray-scaling started at 6:7:4, ended at 6:13:16 by thread 172.
+Image 6 remote errosion started at 6:13:17, ended at 6:13:17 by thread 166.
+
+
+Sub-image 7 was initially processed between 18:4:27, and 18:5:23
+Image 7 remote gray-scaling started at 6:7:5, ended at 6:13:18 by thread 122.
+Image 7 remote errosion started at 6:13:20, ended at 6:13:20 by thread 170.
+
+
+Sub-image 8 was initially processed between 18:5:23, and 18:6:20
+Image 8 remote gray-scaling started at 6:7:5, ended at 6:13:16 by thread 176.
+Image 8 remote errosion started at 6:13:17, ended at 6:13:18 by thread 27.
+
+
+Sub-image 9 was initially processed between 18:5:23, and 18:6:20
+Image 9 remote gray-scaling started at 6:7:5, ended at 6:13:17 by thread 175.
+Image 9 remote errosion started at 6:13:20, ended at 6:13:20 by thread 93.
+
+
+Sub-image 10 was initially processed between 18:5:23, and 18:6:20
+Image 10 remote gray-scaling started at 6:7:5, ended at 6:13:17 by thread 177.
+Image 10 remote errosion started at 6:13:18, ended at 6:13:19 by thread 111.
+
+
+Sub-image 11 was initially processed between 18:5:23, and 18:6:20
+Image 11 remote gray-scaling started at 6:7:6, ended at 6:13:15 by thread 174.
+Image 11 remote errosion started at 6:13:16, ended at 6:13:17 by thread 174.
+
+
+Sub-image 12 was initially processed between 18:5:23, and 18:6:20
+Image 12 remote gray-scaling started at 6:7:11, ended at 6:13:18 by thread 179.
+Image 12 remote errosion started at 6:13:20, ended at 6:13:20 by thread 111.
+
+
+Sub-image 13 was initially processed between 18:5:23, and 18:6:20
+Image 13 remote gray-scaling started at 6:7:9, ended at 6:13:17 by thread 180.
+Image 13 remote errosion started at 6:13:19, ended at 6:13:19 by thread 178.
+
+
+Sub-image 14 was initially processed between 18:5:23, and 18:6:20
+Image 14 remote gray-scaling started at 6:7:10, ended at 6:13:18 by thread 181.
+Image 14 remote errosion started at 6:13:20, ended at 6:13:21 by thread 181.
+
+
+Sub-image 15 was initially processed between 18:5:23, and 18:6:20
+Image 15 remote gray-scaling started at 6:7:11, ended at 6:13:18 by thread 178.
+Image 15 remote errosion started at 6:13:21, ended at 6:13:21 by thread 100.
+
+
