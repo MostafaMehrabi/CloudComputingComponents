@@ -1,0 +1,5 @@
+Sub-image 0 was initially processed between 18:13:50, and 18:19:33
+Image 0 remote gray-scaling started at 6:19:37, ended at 6:23:45 by thread 95.
+Image 0 remote errosion started at 6:23:48, ended at 6:23:50 by thread 113.
+
+

@@ -16,10 +16,10 @@ import pt.runtime.TaskIDGroup;
 import statistics.Statistics;
 
 public class Main {
-	private static 	int numberOfSubImages = 16;
+	private static 	int numberOfSubImages = 1;
 	private static List<TaskIDGroup<Image>> futureGroups = new ArrayList<>();
 	private static List<String> imageNames = new ArrayList<>();
-	private static String benchmarkName = "fourPhysicalCoresOnly";
+	private static String benchmarkName = "eightHyperThreads";
 	private static Statistics statistics = null;
 	private static Mode benchmarkMode = null;
 	private static String overallLog = "";
@@ -29,7 +29,7 @@ public class Main {
 			numberOfSubImages = Integer.parseInt(args[0]);
 		}
 	
-		ParaTask.init(4);
+		ParaTask.init(8);
 		imageNames.add("image1");
 		imageNames.add("image2");
 		imageNames.add("image3");

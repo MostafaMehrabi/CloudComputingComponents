@@ -1,0 +1,10 @@
+Sub-image 0 was initially processed between 14:28:35, and 14:31:28
+Image 0 local gray-scaling started at 14:31:28, ended at 14:33:28 by thread 28.
+Image 0 local errosion started at 14:33:28, ended at 14:36:35 by thread 28.
+
+
+Sub-image 1 was initially processed between 14:28:35, and 14:31:28
+Image 1 local gray-scaling started at 14:31:28, ended at 14:33:27 by thread 31.
+Image 1 local errosion started at 14:33:27, ended at 14:36:32 by thread 31.
+
+

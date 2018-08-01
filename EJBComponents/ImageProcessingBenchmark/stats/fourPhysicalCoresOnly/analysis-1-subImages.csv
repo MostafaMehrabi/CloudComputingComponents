@@ -1,0 +1,63 @@
+sep=;
+1sub-images - time duration for each phase and the corresponding threads - Local
+image1;sub-image 0;
+preparation;16:32:23 - 16:33:34;
+grayscaling;16:33:34 - 16:34:36 (20.);
+errosion;16:34:36 - 16:36:15 (20.);
+
+
+image2;sub-image 0;
+preparation;16:33:34 - 16:35:1;
+grayscaling;16:35:1 - 16:36:4 (23.);
+errosion;16:36:4 - 16:37:34 (23.);
+
+
+image3;sub-image 0;
+preparation;16:35:1 - 16:36:30;
+grayscaling;16:36:30 - 16:37:32 (22.);
+errosion;16:37:32 - 16:39:13 (22.);
+
+
+image4;sub-image 0;
+preparation;16:36:30 - 16:41:3;
+grayscaling;16:41:3 - 16:44:6 (20.);
+errosion;16:44:6 - 16:53:1 (20.);
+
+
+image5;sub-image 0;
+preparation;16:41:3 - 16:48:33;
+grayscaling;16:48:33 - 16:53:13 (23.);
+errosion;16:53:13 - 17:1:26 (23.);
+
+
+1sub-images - time duration for each phase and the corresponding threads - RemoteOneNode
+image1;sub-image 0;
+preparation;17:1:26 - 17:2:43;
+grayscaling;5:2:48 - 5:4:3 (111.);
+errosion;5:4:4 - 5:4:4 (127.);
+
+
+image2;sub-image 0;
+preparation;17:2:43 - 17:4:14;
+grayscaling;5:4:16 - 5:5:32 (127.);
+errosion;5:5:32 - 5:5:33 (93.);
+
+
+image3;sub-image 0;
+preparation;17:4:14 - 17:5:45;
+grayscaling;5:5:47 - 5:7:2 (127.);
+errosion;5:7:4 - 5:7:5 (127.);
+
+
+image4;sub-image 0;
+preparation;17:5:45 - 17:11:22;
+grayscaling;5:11:25 - 5:15:33 (123.);
+errosion;5:15:36 - 5:15:38 (96.);
+
+
+image5;sub-image 0;
+preparation;17:11:22 - 17:20:30;
+grayscaling;5:20:37 - 5:27:14 (110.);
+errosion;5:27:19 - 5:27:22 (108.);
+
+

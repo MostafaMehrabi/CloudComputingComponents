@@ -42,12 +42,12 @@ public class Engine {
 		this.processingMode = processingMode;
 		this.futureGroups = new ArrayList<>();
 		this.namingFactory = "weblogic.jndi.WLInitialContextFactory";
-		this.userName = "";
-		this.nodeOneIP = "127.0.0.1";
-		this.nodeTwoIP = "127.0.0.1";
-		this.nodeOnePassword = "";
-		this.nodeTwoPassword = "";
-		this.httpPort = "7001";
+		this.userName = "jcsAdmin";
+		this.nodeOneIP = "129.154.72.130";
+		this.nodeTwoIP = "129.154.70.244";
+		this.nodeOnePassword = "XGulvCkb6_";
+		this.nodeTwoPassword = "XyvFHUwm4_";
+		this.httpPort = "80";
 	}
 	
 	public List<TaskIDGroup<Image>> process(){

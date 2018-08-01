@@ -1,0 +1,63 @@
+sep=;
+2sub-images - time duration for each phase and the corresponding threads - Local
+image1;sub-image 0;sub-image 1;
+preparation;14:25:44 - 14:26:31;14:25:44 - 14:26:32;
+grayscaling;14:26:32 - 14:27:15 (28.);14:26:32 - 14:27:15 (25.);
+errosion;14:27:15 - 14:28:27 (28.);14:27:15 - 14:28:26 (25.);
+
+
+image2;sub-image 0;sub-image 1;
+preparation;14:26:32 - 14:27:31;14:26:32 - 14:27:30;
+grayscaling;14:27:31 - 14:28:18 (29.);14:27:31 - 14:28:17 (31.);
+errosion;14:28:18 - 14:29:21 (29.);14:28:17 - 14:29:21 (31.);
+
+
+image3;sub-image 0;sub-image 1;
+preparation;14:27:31 - 14:28:35;14:27:31 - 14:28:35;
+grayscaling;14:28:35 - 14:29:18 (25.);14:28:35 - 14:29:18 (24.);
+errosion;14:29:18 - 14:30:25 (25.);14:29:18 - 14:30:25 (24.);
+
+
+image4;sub-image 0;sub-image 1;
+preparation;14:28:35 - 14:31:28;14:28:35 - 14:31:28;
+grayscaling;14:31:28 - 14:33:28 (28.);14:31:28 - 14:33:27 (31.);
+errosion;14:33:28 - 14:36:35 (28.);14:33:27 - 14:36:32 (31.);
+
+
+image5;sub-image 0;sub-image 1;
+preparation;14:31:28 - 14:36:22;14:31:28 - 14:36:22;
+grayscaling;14:36:22 - 14:38:51 (24.);14:36:22 - 14:38:51 (27.);
+errosion;14:38:51 - 14:46:18 (24.);14:38:51 - 14:46:18 (27.);
+
+
+2sub-images - time duration for each phase and the corresponding threads - RemoteOneNode
+image1;sub-image 0;sub-image 1;
+preparation;14:46:18 - 14:47:1;14:46:18 - 14:47:1;
+grayscaling;2:47:4 - 2:47:42 (125.);2:47:4 - 2:47:42 (101.);
+errosion;2:47:42 - 2:47:42 (125.);2:47:43 - 2:47:43 (125.);
+
+
+image2;sub-image 0;sub-image 1;
+preparation;14:47:1 - 14:47:53;14:47:1 - 14:47:52;
+grayscaling;2:47:57 - 2:48:35 (109.);2:47:54 - 2:48:31 (101.);
+errosion;2:48:35 - 2:48:35 (101.);2:48:32 - 2:48:32 (101.);
+
+
+image3;sub-image 0;sub-image 1;
+preparation;14:47:53 - 14:48:43;14:47:53 - 14:48:43;
+grayscaling;2:48:45 - 2:49:22 (109.);2:48:44 - 2:49:22 (101.);
+errosion;2:49:23 - 2:49:23 (101.);2:49:22 - 2:49:23 (101.);
+
+
+image4;sub-image 0;sub-image 1;
+preparation;14:48:43 - 14:51:34;14:48:43 - 14:51:35;
+grayscaling;2:51:37 - 2:53:41 (127.);2:51:42 - 2:53:47 (118.);
+errosion;2:53:43 - 2:53:44 (127.);2:53:48 - 2:53:49 (127.);
+
+
+image5;sub-image 0;sub-image 1;
+preparation;14:51:35 - 14:56:18;14:51:35 - 14:56:26;
+grayscaling;2:56:32 - 2:59:50 (36.);2:56:30 - 2:59:48 (122.);
+errosion;2:59:54 - 2:59:55 (101.);2:59:51 - 2:59:52 (101.);
+
+
