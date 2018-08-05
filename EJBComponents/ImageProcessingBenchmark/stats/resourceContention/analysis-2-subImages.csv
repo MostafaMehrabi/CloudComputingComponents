@@ -1,63 +1,63 @@
 sep=;
 2sub-images - time duration for each phase and the corresponding threads - Local
-image1;sub-image 0;sub-image 1;
-preparation;13:10:2 - 13:10:41;13:10:2 - 13:10:41;
-grayscaling;13:10:41 - 13:11:35 (19.);13:10:41 - 13:11:35 (18.);
-errosion;13:12:20 - 13:13:7 (19.);13:12:19 - 13:13:6 (18.);
+image1;sub-image 0;duration;waiting for next stage;sub-image 1;duration;waiting for next stage;
+preparation;13:10:2 - 13:10:41;39;0;13:10:2 - 13:10:41;39;0;
+grayscaling;13:10:41 - 13:11:35 (19);54;45;13:10:41 - 13:11:35 (18);54;44;
+errosion;13:12:20 - 13:13:7 (19);47;;13:12:19 - 13:13:6 (18);47;;
 
 
-image2;sub-image 0;sub-image 1;
-preparation;13:11:35 - 13:12:19;13:11:35 - 13:12:20;
-grayscaling;13:13:6 - 13:13:36 (18.);13:13:7 - 13:13:37 (19.);
-errosion;13:14:17 - 13:15:2 (18.);13:14:19 - 13:15:3 (19.);
+image2;sub-image 0;duration;waiting for next stage;sub-image 1;duration;waiting for next stage;
+preparation;13:11:35 - 13:12:19;44;47;13:11:35 - 13:12:20;45;47;
+grayscaling;13:13:6 - 13:13:36 (18);30;41;13:13:7 - 13:13:37 (19);30;42;
+errosion;13:14:17 - 13:15:2 (18);45;;13:14:19 - 13:15:3 (19);44;;
 
 
-image3;sub-image 0;sub-image 1;
-preparation;13:13:36 - 13:14:17;13:13:37 - 13:14:19;
-grayscaling;13:15:2 - 13:15:29 (18.);13:15:3 - 13:15:30 (19.);
-errosion;13:17:45 - 13:18:35 (18.);13:17:47 - 13:18:37 (19.);
+image3;sub-image 0;duration;waiting for next stage;sub-image 1;duration;waiting for next stage;
+preparation;13:13:36 - 13:14:17;41;45;13:13:37 - 13:14:19;42;44;
+grayscaling;13:15:2 - 13:15:29 (18);27;136;13:15:3 - 13:15:30 (19);27;137;
+errosion;13:17:45 - 13:18:35 (18);50;;13:17:47 - 13:18:37 (19);50;;
 
 
-image4;sub-image 0;sub-image 1;
-preparation;13:15:29 - 13:17:45;13:15:30 - 13:17:47;
-grayscaling;13:18:35 - 13:20:3 (18.);13:18:37 - 13:20:5 (19.);
-errosion;13:23:45 - 13:26:37 (18.);13:23:48 - 13:26:39 (19.);
+image4;sub-image 0;duration;waiting for next stage;sub-image 1;duration;waiting for next stage;
+preparation;13:15:29 - 13:17:45;136;50;13:15:30 - 13:17:47;137;50;
+grayscaling;13:18:35 - 13:20:3 (18);88;222;13:18:37 - 13:20:5 (19);88;223;
+errosion;13:23:45 - 13:26:37 (18);172;;13:23:48 - 13:26:39 (19);171;;
 
 
-image5;sub-image 0;sub-image 1;
-preparation;13:20:3 - 13:23:45;13:20:5 - 13:23:48;
-grayscaling;13:26:37 - 13:29:0 (18.);13:26:39 - 13:29:3 (19.);
-errosion;13:29:0 - 13:33:30 (18.);13:29:3 - 13:33:32 (19.);
+image5;sub-image 0;duration;waiting for next stage;sub-image 1;duration;waiting for next stage;
+preparation;13:20:3 - 13:23:45;222;172;13:20:5 - 13:23:48;223;171;
+grayscaling;13:26:37 - 13:29:0 (18);143;0;13:26:39 - 13:29:3 (19);144;0;
+errosion;13:29:0 - 13:33:30 (18);270;;13:29:3 - 13:33:32 (19);269;;
 
 
 2sub-images - time duration for each phase and the corresponding threads - RemoteOneNode
-image1;sub-image 0;sub-image 1;
-preparation;13:33:33 - 13:34:15;13:33:33 - 13:34:15;
-grayscaling;1:34:18 - 1:34:54 (109.);1:34:19 - 1:34:55 (101.);
-errosion;1:34:55 - 1:34:55 (121.);1:34:56 - 1:34:56 (121.);
+image1;sub-image 0;duration;waiting for next stage;sub-image 1;duration;waiting for next stage;
+preparation;13:33:33 - 13:34:15;42;3;13:33:33 - 13:34:15;42;4;
+grayscaling;1:34:18 - 1:34:54 (109);36;1;1:34:19 - 1:34:55 (101);36;1;
+errosion;1:34:55 - 1:34:55 (121);0;;1:34:56 - 1:34:56 (121);0;;
 
 
-image2;sub-image 0;sub-image 1;
-preparation;13:34:15 - 13:34:59;13:34:15 - 13:34:59;
-grayscaling;1:35:1 - 1:35:38 (121.);1:35:1 - 1:35:38 (109.);
-errosion;1:35:39 - 1:35:39 (121.);1:35:38 - 1:35:39 (115.);
+image2;sub-image 0;duration;waiting for next stage;sub-image 1;duration;waiting for next stage;
+preparation;13:34:15 - 13:34:59;44;2;13:34:15 - 13:34:59;44;2;
+grayscaling;1:35:1 - 1:35:38 (121);37;1;1:35:1 - 1:35:38 (109);37;0;
+errosion;1:35:39 - 1:35:39 (121);0;;1:35:38 - 1:35:39 (115);1;;
 
 
-image3;sub-image 0;sub-image 1;
-preparation;13:34:59 - 13:35:44;13:34:59 - 13:35:43;
-grayscaling;1:35:45 - 1:36:23 (115.);1:35:45 - 1:36:23 (85.);
-errosion;1:36:23 - 1:36:24 (115.);1:36:24 - 1:36:24 (97.);
+image3;sub-image 0;duration;waiting for next stage;sub-image 1;duration;waiting for next stage;
+preparation;13:34:59 - 13:35:44;45;1;13:34:59 - 13:35:43;44;2;
+grayscaling;1:35:45 - 1:36:23 (115);38;0;1:35:45 - 1:36:23 (85);38;1;
+errosion;1:36:23 - 1:36:24 (115);1;;1:36:24 - 1:36:24 (97);0;;
 
 
-image4;sub-image 0;sub-image 1;
-preparation;13:35:44 - 13:38:41;13:35:44 - 13:38:39;
-grayscaling;1:38:45 - 1:40:51 (85.);1:38:43 - 1:40:48 (115.);
-errosion;1:40:53 - 1:40:53 (95.);1:40:50 - 1:40:51 (115.);
+image4;sub-image 0;duration;waiting for next stage;sub-image 1;duration;waiting for next stage;
+preparation;13:35:44 - 13:38:41;177;4;13:35:44 - 13:38:39;175;4;
+grayscaling;1:38:45 - 1:40:51 (85);126;2;1:38:43 - 1:40:48 (115);125;2;
+errosion;1:40:53 - 1:40:53 (95);0;;1:40:50 - 1:40:51 (115);1;;
 
 
-image5;sub-image 0;sub-image 1;
-preparation;13:38:41 - 13:43:23;13:38:41 - 13:43:28;
-grayscaling;1:43:31 - 1:46:51 (122.);1:43:33 - 1:46:53 (85.);
-errosion;1:46:54 - 1:46:56 (122.);1:46:57 - 1:46:59 (122.);
+image5;sub-image 0;duration;waiting for next stage;sub-image 1;duration;waiting for next stage;
+preparation;13:38:41 - 13:43:23;282;8;13:38:41 - 13:43:28;287;5;
+grayscaling;1:43:31 - 1:46:51 (122);200;3;1:43:33 - 1:46:53 (85);200;4;
+errosion;1:46:54 - 1:46:56 (122);2;;1:46:57 - 1:46:59 (122);2;;
 
 
