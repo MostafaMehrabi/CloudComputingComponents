@@ -15,8 +15,6 @@ public class GrayScaler {
     	//In addition to the converted image, the bean also provides a comma-separated message
     	//that is sent back to the user with the following format:
     	//imageNo,startingTime,endingTime,threadNo,description
-    	String startTime = getTime();
-    	String description = image.getMessage();
     	
     	try {
 	    	//convert the image into gray scale
@@ -47,17 +45,13 @@ public class GrayScaler {
 	    	}
 	    	image.setStatus(ImageStatus.SUCCESS);
     	}catch(Exception e) {
-			description += "image " + image.getImageNO() + " encountered an error in LocalGrayScaler.\n" + e.getMessage();
     		image.setStatus(ImageStatus.FAILED);
 		}   
     	
-		String endTime = getTime();
-    	description += "Image " + image.getImageNO() + " local gray-scaling started at " + startTime + ", ended at " + endTime + " by thread " + Thread.currentThread().getId() + ".\n";
-    	image.setMessage(description);
-    	return image;
+		return image;
     }
     
-    private String getTime() {
+    public String getTime() {
     	Calendar calendar = Calendar.getInstance();
 		String time = calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE) + ":" + calendar.get(Calendar.SECOND);
 		return time;
@@ -67,7 +61,7 @@ public class GrayScaler {
 		//for one thread, takes almost two minutes to 
 		//prepare a 972 x 718 picture
 		long count = 0;
-		for(int index = 0; index < 30; index++) {
+		for(int index = 0; index < 5; index++) {
 			while(count < 8000) {
 				count ++;
 			}

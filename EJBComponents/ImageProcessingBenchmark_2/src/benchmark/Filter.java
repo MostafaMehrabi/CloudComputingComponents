@@ -7,10 +7,20 @@ import processingUnits.GrayScaler;
 public class Filter{
 	public Image filter(Image image) {
 		long start = System.currentTimeMillis();
-		Erroder erroder = new Erroder();
-		GrayScaler grayScaler = new GrayScaler();
-		Image result = erroder.errode(image);
-		result = grayScaler.grayScale(result);
-		return result;
+    	String description = image.getMessage();
+    	int imageNo = image.getImageNO();
+    	
+    	GrayScaler grayScaler = new processingUnits.GrayScaler();
+    	Erroder erroder = new processingUnits.Erroder();
+    	Image result = grayScaler.grayScale(image);
+    	result = erroder.errode(result);
+    	
+    	long end = System.currentTimeMillis();
+    	long duration = end - start;
+    	String newMessage = "Image " + imageNo + ", local filtering: " + duration + " ms.\n";
+    	
+    	description += newMessage;
+    	result.setMessage(description);
+    	return result;  
 	}
 }

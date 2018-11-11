@@ -3,6 +3,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="lib/ImageClient.jar"/>
-	<classpathentry kind="lib" path="lib/PTLambda-Src-2.0.0.jar"/>
+	<classpathentry kind="lib" path="lib/PTLambda-Runtime-2.0.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

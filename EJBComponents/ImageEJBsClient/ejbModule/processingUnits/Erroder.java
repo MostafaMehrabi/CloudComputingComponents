@@ -27,9 +27,6 @@ public class Erroder {
     	//In addition to the converted image, the bean also provides a comma-separated message
     	//that is sent back to the user with the following format:
     	//imageNo,startingTime,endingTime,threadNo,description
-    	String description = image.getMessage();
-    	String startTime = getTime();
-    	
     	BufferedImage originalImage = image.getImage();
     	int type = originalImage.getType();
     	int originalWidth = originalImage.getWidth();
@@ -37,8 +34,7 @@ public class Erroder {
     	
     	BufferedImage errodedImage = new BufferedImage(originalWidth, originalHight, type);
     	
-    	try {
-    		
+    	try {    		
     		//simulate a processing time for each pixel
     		
     		for(int row = 0; row < originalHight; row++) {
@@ -52,14 +48,9 @@ public class Erroder {
     		image.setImage(errodedImage);
     		image.setStatus(ImageStatus.SUCCESS);
     	}catch(Exception e) {
-    		description += "image " + image.getImageNO() + " encountered an error in LocalErroder.\n" + e.getMessage();
     		image.setStatus(ImageStatus.FAILED);
     	}
     	
-    	String endTime = getTime();
-    	description += "Image " + image.getImageNO() + " local errosion started at " + startTime + ", ended at " + endTime + " by thread " + Thread.currentThread().getId() + ".\n";
-		image.setMessage(description);
-
     	return image;
     }
     
@@ -137,7 +128,7 @@ public class Erroder {
     	return values;
     }
     
-    private String getTime() {
+    public String getTime() {
     	Calendar calendar = Calendar.getInstance();
     	String time = calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE) + ":" + calendar.get(Calendar.SECOND);
     	return time;
@@ -148,7 +139,7 @@ public class Erroder {
 		//prepare a 972 x 718 picture
     	long count = 0;
     	for(int index = 0; index < 30; index++) {
-			while(count < 12000) {
+			while(count < 2000) {
 				count ++;
 			}
 		}
