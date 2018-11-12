@@ -18,35 +18,35 @@ public class Main {
 	private static 	int numberOfSubImages = 1;
 	private static List<TaskIDGroup<Image>> futureGroups = new ArrayList<>();
 	private static List<String> imageNames = new ArrayList<>();
-	private static String benchmarkName = "eightHyperThreads";
+	private static int numberOfThreads = 1;
+	private static String benchmarkName = "";
 	private static Statistics statistics = null;
 	private static Mode benchmarkMode = null;
 	private static String overallLog = "";
+	
 	public static void main(String[] args) {
 	
 		if(args.length != 0) {
 			numberOfSubImages = Integer.parseInt(args[0]);
 		}
 	
-		ParaTask.init(8);
-		imageNames.add("image1");
-		imageNames.add("image2");
-		imageNames.add("image3");
-		imageNames.add("image4");
-		imageNames.add("image5");
-//		imageNames.add("image6"); too large
+		benchmarkName = numberOfThreads + "_Threads"; 
+		ParaTask.init(numberOfThreads);
+		
+		for(int index = 1; index <= 32; index++) {
+			String imageName = "image" + index + ".jpg";
+			imageNames.add(imageName);
+		}
 		
 		statistics = new Statistics(benchmarkName);
 
 		//for now we only have the two modes, third mode must be implemented.
-		for(int modeNumber = 0; modeNumber < 2; modeNumber++) {
+		for(int modeNumber = 0; modeNumber < 1; modeNumber++) {
 			
 			if(modeNumber == 0)
 				benchmarkMode = Mode.Local;
 			else if(modeNumber == 1 )
-				benchmarkMode = Mode.RemoteOneNode;
-			else if (modeNumber == 2)
-				benchmarkMode = Mode.RemoteTwoNodes;
+				benchmarkMode = Mode.Remote;		
 			
 			overallLog = "";
 			
@@ -97,9 +97,6 @@ public class Main {
 		
 		try {
 			futureGroup.waitTillFinished();
-//			for(int index = 0; index < numberOfSubImages; index++ ) {
-//				images[index] = futureGroup.getInnerTaskResult(index);
-//			}
 			images = futureGroup.getResultsAsArray(images);
 			ImageSplit joiner = new ImageSplit(numberOfSubImages, originalFileName);
 			joiner.split(); //sets up the parameters of the component.

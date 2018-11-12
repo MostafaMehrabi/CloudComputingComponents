@@ -14,32 +14,33 @@ public class ImageFactory {
 		int imageWidth = bufferedImage.getWidth();
 		int imageHeight = bufferedImage.getHeight();
 		Image image = null;
-		String startTime = getTime();
+		long start = System.currentTimeMillis();
 		//simulate the process of creating image from sensory data
 		for(int row = 0; row < imageHeight; row++) {
 			for(int column = 0; column < imageWidth; column++) {
 				simulateProcess();
 			}
 		}
-		String endTime = getTime();
-		String initialMessage = "Sub-image " + imageNumber + " was initially processed between " + startTime + ", and " + endTime + "\n";
+		long end = System.currentTimeMillis();
+		String initialMessage = "Image " + imageNumber + " preparation: " + (end-start) + " ms.\n";
 		image = new Image(bufferedImage, imageNumber);
 		image.setMessage(initialMessage);
 		return image;
 	}
 	
-	private void simulateProcess() {
+	private long simulateProcess() {
 		//for one thread, takes almost two minutes to 
 		//prepare a 972 x 718 picture
-		for(int index = 0; index < 30; index++) {
-			long count = 0;
-			while(count < 10000) {
+		long count = 0;
+		for(int index = 0; index < 6; index++) {
+			while(count < 5000) {
 				count ++;
 			}
 		}
+		return count;
 	}
 	
-	private String getTime() {
+	public String getTime() {
 		Calendar calendar = Calendar.getInstance();
 		String time = calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE) + ":" + calendar.get(Calendar.SECOND);
 		return time;

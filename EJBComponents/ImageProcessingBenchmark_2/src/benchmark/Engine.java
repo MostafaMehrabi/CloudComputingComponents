@@ -5,11 +5,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import beans.RemoteErroder;
-import beans.RemoteGrayScaler;
+import beans.RemoteFilter;
 import classes.Image;
-import processingUnits.Erroder;
-import processingUnits.GrayScaler;
 import pt.functionalInterfaces.FunctorOneArgWithReturn;
 import pt.functionalInterfaces.FunctorTwoArgsWithReturn;
 import pt.runtime.CloudTaskOneArg;
@@ -26,13 +23,11 @@ public class Engine {
 	private List<TaskIDGroup<Image>> futureGroups = null;
 	private String namingFactory = null;
 	
-	public enum Mode {Local, RemoteOneNode, RemoteTwoNodes};
+	public enum Mode {Local, Remote};
 	private Mode processingMode = null;
 	private String userName = null;
 	private String nodeOnePassword = null;
-	private String nodeTwoPassword = null;
 	private String nodeOneIP = null;
-	private String nodeTwoIP = null;
 	private String httpPort = null;
 	
 	public Engine(int numberOfSubImages, List<String> imageNames, Mode processingMode) {
@@ -58,15 +53,16 @@ public class Engine {
 	
 	@SuppressWarnings("unchecked")
 	private List<Image> prepareSubImages(String imageName){
-		long start = System.currentTimeMillis();
+		long start = 0;
 		TaskIDGroup<Image> preparationTasks = new TaskIDGroup<>();
 		List<Image> images = new ArrayList<>();
 		
 		try {
-			String fileName = "." + File.separator + "images" + File.separator + imageName + ".jpg";
+			String fileName = "." + File.separator + "images" + File.separator + imageName;
 			ImageSplit splitter = new ImageSplit(numberOfSubImages, fileName);
 			BufferedImage[] bufferedImages = splitter.split();
 			ImageFactory imageFactory = new ImageFactory();
+			start =  System.currentTimeMillis();
 			for(int imageNumber = 0; imageNumber < bufferedImages.length; imageNumber++) {
 				BufferedImage bufferedImage = bufferedImages[imageNumber];
 				TaskInfoTwoArgs<Image, BufferedImage, Integer> preparationTask = (TaskInfoTwoArgs<Image, BufferedImage, Integer>) ParaTask.asTask(TaskType.ONEOFF, 
@@ -79,11 +75,6 @@ public class Engine {
 			preparationTasks.waitTillFinished();
 			Image[] imageArray = new Image[numberOfSubImages];
 			imageArray = preparationTasks.getResultsAsArray(imageArray);
-//			for(int index = 0; index < numberOfSubImages; index++) {
-//				System.out.println("waiting for the " + index + "th sub-image.");
-//				imageArray[index] = preparationTasks.getInnerTaskResult(index);
-//				System.out.println("the " + index + "th sub-image retrieved.");
-//			}
 			
 			for(Image image : imageArray) {
 				images.add(image);
@@ -104,12 +95,9 @@ public class Engine {
 	private TaskIDGroup<Image> processSubImages(List<Image> images){
 		if(processingMode.equals(Mode.Local))
 			return processLocal(images);
-		else if(processingMode.equals(Mode.RemoteOneNode)) {
+		else if(processingMode.equals(Mode.Remote)) {
 			ParaTask.setCloudMode(true);
 			return processRemoteOneNode(images);
-		}else if(processingMode.equals(Mode.RemoteTwoNodes)) {
-			ParaTask.setCloudMode(true);
-			return processRemoteTwoNodes(images);
 		}
 		return null;
 	}
@@ -117,20 +105,16 @@ public class Engine {
 	@SuppressWarnings("unchecked")
 	private TaskIDGroup<Image> processLocal(List<Image> images){
 		TaskIDGroup<Image> processedImages = new TaskIDGroup<>();
-		GrayScaler grayScaler = new GrayScaler();
-		Erroder erroder = new Erroder();
+		Filter filter = new Filter();
 		
 		for(Image image : images) {
-			TaskInfoOneArg<Image, Image> grayTaskInfo = (TaskInfoOneArg<Image, Image>) ParaTask.asTask(TaskType.ONEOFF, (FunctorOneArgWithReturn<Image, Image>)((x) -> grayScaler.grayScale(x)));
-			TaskID<Image> grayTask = grayTaskInfo.start(image);
+			TaskInfoOneArg<Image, Image> filterTaskInfo = (TaskInfoOneArg<Image, Image>) ParaTask.asTask(TaskType.ONEOFF, 
+					(FunctorOneArgWithReturn<Image, Image>)((x) -> filter.filter(x)));
+			TaskID<Image> filterTask = filterTaskInfo.start(image);
 			
-			TaskInfoOneArg<Image, TaskID<Image>> errosionTaskInfo = (TaskInfoOneArg<Image, TaskID<Image>>) ParaTask.asTask(TaskType.ONEOFF, (FunctorOneArgWithReturn<Image, TaskID<Image>>)
-																																			((x) -> erroder.errode(x.getReturnResult())));
-			ParaTask.registerDependences(errosionTaskInfo, grayTask);
-			TaskID<Image> errosionTask = errosionTaskInfo.start(grayTask);
-
-			processedImages.addInnerTask(errosionTask);
+			processedImages.addInnerTask(filterTask);
 		}
+		
 		return processedImages;
 	}
 	
@@ -138,52 +122,16 @@ public class Engine {
 		TaskIDGroup<Image> processedImages = new TaskIDGroup<>();
 		try {
 			for(Image image : images) {
-				CloudTaskOneArg<Image, Image> grayCloudTask = new CloudTaskOneArg<>(false, nodeOneIP, httpPort, userName, nodeOnePassword, namingFactory, RemoteGrayScaler.class, 
-						RemoteGrayScaler.class.getMethod("convert", Image.class));
-				grayCloudTask.setEJB("ImageProcessors", "ImageEJBs", "GrayScaler", "beans.RemoteGrayScaler");
-				TaskID<Image> grayTask = grayCloudTask.start(image);
-				
-				CloudTaskOneArg<Image, TaskID<Image>> errosionTaskInfo = new CloudTaskOneArg<>(false, nodeOneIP, httpPort, userName, nodeOnePassword, namingFactory, RemoteErroder.class,
-						RemoteErroder.class.getMethod("errode", Image.class));
-				errosionTaskInfo.setEJB("ImageProcessors", "ImageEJBs", "Erroder", "beans.RemoteErroder");
-				ParaTask.registerDependences(errosionTaskInfo, grayTask);
-				TaskID<Image> errosionTask = errosionTaskInfo.start(grayTask);
-				
-				processedImages.addInnerTask(errosionTask);
+				CloudTaskOneArg<Image, Image> filterTaskInfo = new CloudTaskOneArg<>(false, nodeOneIP, httpPort, userName, nodeOnePassword, namingFactory, RemoteFilter.class, 
+						RemoteFilter.class.getMethod("filter", Image.class));
+				filterTaskInfo.setEJB("ImageProcessors", "ImageEJBs", "Filter", "beans.RemoteFilter");
+				TaskID<Image> filterTask = filterTaskInfo.start(image);
+								
+				processedImages.addInnerTask(filterTask);
 			}
 		} catch (NoSuchMethodException | SecurityException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}		
 		return processedImages;
-	}
-	
-	private TaskIDGroup<Image> processRemoteTwoNodes(List<Image> images){
-		TaskIDGroup<Image> processedImages = new TaskIDGroup<>();
-		try {
-			int threshold = images.size() / 2;
-			for(int index = 0; index < images.size(); index++) {
-				Image image = images.get(index);
-				String tempIP = (index <= threshold) ? nodeOneIP : nodeTwoIP;
-				String tempPassword = (index <= threshold) ? nodeOnePassword : nodeTwoPassword;
-				
-				CloudTaskOneArg<Image, Image> grayCloudTask = new CloudTaskOneArg<>(false, tempIP, httpPort, userName, tempPassword, namingFactory, RemoteGrayScaler.class, 
-						RemoteGrayScaler.class.getMethod("convert", Image.class));
-				grayCloudTask.setEJB("ImageProcessors", "ImageEJBs", "GrayScaler", "beans.RemoteGrayScaler");
-				TaskID<Image> grayTask = grayCloudTask.start(image);
-				
-				CloudTaskOneArg<Image, TaskID<Image>> errosionTaskInfo = new CloudTaskOneArg<>(false, tempIP, httpPort, userName, tempPassword, namingFactory, RemoteErroder.class,
-						RemoteErroder.class.getMethod("errode", Image.class));
-				errosionTaskInfo.setEJB("ImageProcessors", "ImageEJBs", "Erroder", "beans.RemoteErroder");
-				ParaTask.registerDependences(errosionTaskInfo, grayTask);
-				TaskID<Image> errosionTask = errosionTaskInfo.start(grayTask);
-				
-				processedImages.addInnerTask(errosionTask);
-			}
-		} catch (NoSuchMethodException | SecurityException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}		
-		return processedImages;
-	}
+	}	
 }
