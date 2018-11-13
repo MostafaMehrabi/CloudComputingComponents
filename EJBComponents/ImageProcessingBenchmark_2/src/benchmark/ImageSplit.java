@@ -119,7 +119,6 @@ public class ImageSplit {
 		int jointImageHeight = ((totalRowSplit - 1) * imageArray[0][0].getHeight()) + imageArray[0][totalRowSplit-1].getHeight();
 		int type = imageArray[0][0].getType();
 		String log = "Joint image of " + fileName + " is size: " + jointImageWidth + " x " + jointImageHeight;
-		Main.addToLog(log);
 		System.out.println(log);
 		
 		try {

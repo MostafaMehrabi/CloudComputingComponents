@@ -29,7 +29,6 @@ public class Filter implements RemoteFilter {
     public Future<Image> filter(Image image) {
     	long start = System.currentTimeMillis();
     	String description = image.getMessage();
-    	int imageNo = image.getImageNO();
     	
     	processingUnits.GrayScaler grayScaler = new processingUnits.GrayScaler();
     	processingUnits.Erroder erroder = new processingUnits.Erroder();
@@ -38,7 +37,7 @@ public class Filter implements RemoteFilter {
     	
     	long end = System.currentTimeMillis();
     	long duration = end - start;
-    	String newMessage = "Image " + imageNo + ", cloud filtering: " + duration + " ms.\n";
+    	String newMessage = Long.toString(duration);
     	
     	description += newMessage;
     	result.setMessage(description);

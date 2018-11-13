@@ -61,7 +61,7 @@ public class GrayScaler {
 		//for one thread, takes almost two minutes to 
 		//prepare a 972 x 718 picture
 		long count = 0;
-		for(int index = 0; index < 5; index++) {
+		for(int index = 0; index < 8; index++) {
 			while(count < 8000) {
 				count ++;
 			}

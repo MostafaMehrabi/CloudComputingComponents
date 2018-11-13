@@ -139,7 +139,7 @@ public class Erroder {
 		//prepare a 972 x 718 picture
     	long count = 0;
     	for(int index = 0; index < 30; index++) {
-			while(count < 2000) {
+			while(count < 4000) {
 				count ++;
 			}
 		}

@@ -8,7 +8,6 @@ public class Filter{
 	public Image filter(Image image) {
 		long start = System.currentTimeMillis();
     	String description = image.getMessage();
-    	int imageNo = image.getImageNO();
     	
     	GrayScaler grayScaler = new processingUnits.GrayScaler();
     	Erroder erroder = new processingUnits.Erroder();
@@ -17,7 +16,7 @@ public class Filter{
     	
     	long end = System.currentTimeMillis();
     	long duration = end - start;
-    	String newMessage = "Image " + imageNo + ", local filtering: " + duration + " ms.\n";
+    	String newMessage = Long.toString(duration);
     	
     	description += newMessage;
     	result.setMessage(description);

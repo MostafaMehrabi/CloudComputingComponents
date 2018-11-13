@@ -15,14 +15,14 @@ import pt.runtime.TaskIDGroup;
 import statistics.Statistics;
 
 public class Main {
-	private static 	int numberOfSubImages = 1;
+	private static 	int numberOfSubImages = 16;
 	private static List<TaskIDGroup<Image>> futureGroups = new ArrayList<>();
 	private static List<String> imageNames = new ArrayList<>();
-	private static int numberOfThreads = 1;
+	private static int numberOfThreads = 8;
 	private static String benchmarkName = "";
 	private static Statistics statistics = null;
 	private static Mode benchmarkMode = null;
-	private static String overallLog = "";
+	private static List<String> overallLog = null;
 	
 	public static void main(String[] args) {
 	
@@ -30,7 +30,7 @@ public class Main {
 			numberOfSubImages = Integer.parseInt(args[0]);
 		}
 	
-		benchmarkName = numberOfThreads + "_Threads"; 
+		benchmarkName = "Threads_" + numberOfThreads; 
 		ParaTask.init(numberOfThreads);
 		
 		for(int index = 1; index <= 32; index++) {
@@ -38,7 +38,7 @@ public class Main {
 			imageNames.add(imageName);
 		}
 		
-		statistics = new Statistics(benchmarkName);
+		statistics = new Statistics(benchmarkName, imageNames);
 
 		//for now we only have the two modes, third mode must be implemented.
 		for(int modeNumber = 0; modeNumber < 1; modeNumber++) {
@@ -48,37 +48,46 @@ public class Main {
 			else if(modeNumber == 1 )
 				benchmarkMode = Mode.Remote;		
 			
-			overallLog = "";
+			overallLog = new ArrayList<>();
 			
 			System.out.println("Benchmark started in mode " + benchmarkMode.toString() + " with " + numberOfSubImages + " sub-images.");
+			long start = System.currentTimeMillis();
 			String startTime = getTime();
+
 			Engine engine = new Engine(numberOfSubImages, imageNames, benchmarkMode);
 			futureGroups = engine.process();
 			System.out.println("received future groups");
 			System.out.println("now joining them");
-			joinImages(modeNumber);
+			List<Image> imageList = joinImages();
 			String endTime = getTime();
-			addToLog("benchmark started: " + startTime);
-			addToLog("benchmark ended: " + endTime);
-			statistics.recordOverallBenchmarkTime(modeNumber, numberOfSubImages, overallLog);
+
+			long end = System.currentTimeMillis();
+			statistics.setOverallTime(end - start);
+			statistics.recordBenchmarkStatistics(modeNumber, numberOfSubImages, imageList);
+			
+			addToLog(startTime);
+			addToLog(endTime);
+			statistics.recordOverallBenchmarkLog(modeNumber, numberOfSubImages, overallLog);
 			System.out.println("Benchmark finished in mode " + benchmarkMode.toString() + " with " + numberOfSubImages + " sub-image.");
 		}
 	}
 	
-	private static void joinImages(int mode) {
+	private static List<Image> joinImages( ) {
+		List<Image> imageList = new ArrayList<>();
 		for(int index = 0; index < futureGroups.size(); index++) {
 			TaskIDGroup<Image> futureGroup = futureGroups.get(index);
-			Image[] subImages = joinSubImages(futureGroup, imageNames.get(index));
-			statistics.recordStatisticsForImage(mode, numberOfSubImages, index, subImages);
+			 List<Image> images = joinSubImages(futureGroup, imageNames.get(index));
+			 imageList.addAll(images);
 		}
+		return imageList;
 	}
 	
 	public static void addToLog(String log) {
-		overallLog += (log + "\n");
+		overallLog.add(log);
 	}
 	
-	private static Image[] joinSubImages(TaskIDGroup<Image> futureGroup, String imageName) {
-		String originalFileName = "." + File.separator + "images" + File.separator + imageName + ".jpg";
+	private static List<Image> joinSubImages(TaskIDGroup<Image> futureGroup, String imageName) {
+		String originalFileName = "." + File.separator + "images" + File.separator + imageName;
 		String outputFolderName = "." + File.separator + "output" + File.separator + benchmarkName + File.separator 
 																		+ benchmarkMode.toString() + File.separator + numberOfSubImages;
 		try {
@@ -90,7 +99,7 @@ public class Main {
 			e.printStackTrace();
 		}
 		
-		String outputName = outputFolderName + File.separator + imageName + ".jpg";
+		String outputName = outputFolderName + File.separator + imageName;
 		Image[] images = new Image[numberOfSubImages];
 
 		BufferedImage jointImage = null;
@@ -115,7 +124,11 @@ public class Main {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}		
-		return images;
+		List<Image> imageList = new ArrayList<>();
+		for(Image image : images) {
+			imageList.add(image);
+		}
+		return imageList;
 	}
 	
 	private static String getTime() {

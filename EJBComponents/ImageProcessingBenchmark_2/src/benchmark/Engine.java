@@ -81,7 +81,7 @@ public class Engine {
 			}
 			
 			long end = System.currentTimeMillis();
-			String log = "sub-images preparation for " + imageName + " took: " + (end - start);
+			String log = Long.toString(end - start);
 			Main.addToLog(log);
 			System.out.println(log);
 			return images;

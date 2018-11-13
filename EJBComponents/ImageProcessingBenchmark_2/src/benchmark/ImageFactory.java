@@ -22,7 +22,7 @@ public class ImageFactory {
 			}
 		}
 		long end = System.currentTimeMillis();
-		String initialMessage = "Image " + imageNumber + " preparation: " + (end-start) + " ms.\n";
+		String initialMessage = (end-start) + " ";
 		image = new Image(bufferedImage, imageNumber);
 		image.setMessage(initialMessage);
 		return image;
@@ -33,7 +33,7 @@ public class ImageFactory {
 		//prepare a 972 x 718 picture
 		long count = 0;
 		for(int index = 0; index < 6; index++) {
-			while(count < 5000) {
+			while(count < 10000) {
 				count ++;
 			}
 		}

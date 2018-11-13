@@ -39,7 +39,7 @@ public class ImageFactory {
 		}
 	}
 	
-	private String getTime() {
+	public String getTime() {
 		Calendar calendar = Calendar.getInstance();
 		String time = calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE) + ":" + calendar.get(Calendar.SECOND);
 		return time;
