@@ -62,7 +62,7 @@ public class GrayScaler {
 		//prepare a 972 x 718 picture
 		long count = 0;
 		for(int index = 0; index < 8; index++) {
-			while(count < 8000) {
+			while(count < 10000) {
 				count ++;
 			}
 		}

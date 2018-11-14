@@ -18,7 +18,7 @@ public class Main {
 	private static 	int numberOfSubImages = 16;
 	private static List<TaskIDGroup<Image>> futureGroups = new ArrayList<>();
 	private static List<String> imageNames = new ArrayList<>();
-	private static int numberOfThreads = 8;
+	private static int numberOfThreads = 5;
 	private static String benchmarkName = "";
 	private static Statistics statistics = null;
 	private static Mode benchmarkMode = null;

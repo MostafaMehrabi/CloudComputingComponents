@@ -153,12 +153,10 @@ public class Statistics {
 			BufferedReader reader = new BufferedReader(fileReader);
 			String record = reader.readLine();
 			records.add(record); //The first line is sep=; start from the next line
-			System.out.println(record);
 	
 			record = reader.readLine(); 
 			record += numberOfSubImages + ";";
 			records.add(record);
-			System.out.println(record);
 			
 			int overallLogIndex = 0;
 			record = reader.readLine();

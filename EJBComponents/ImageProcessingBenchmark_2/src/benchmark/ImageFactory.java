@@ -32,8 +32,8 @@ public class ImageFactory {
 		//for one thread, takes almost two minutes to 
 		//prepare a 972 x 718 picture
 		long count = 0;
-		for(int index = 0; index < 6; index++) {
-			while(count < 10000) {
+		for(int index = 0; index < 10; index++) {
+			while(count < 6000) {
 				count ++;
 			}
 		}
