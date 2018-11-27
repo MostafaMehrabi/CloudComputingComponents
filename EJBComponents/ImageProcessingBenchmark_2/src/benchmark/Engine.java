@@ -36,9 +36,9 @@ public class Engine {
 		this.processingMode = processingMode;
 		this.futureGroups = new ArrayList<>();
 		this.namingFactory = "weblogic.jndi.WLInitialContextFactory";
-		this.userName = "jcsAdmin";
-		this.nodeOneIP = "144.21.83.12";
-		this.nodeOnePassword = "XRxBOjLp2_3Cc";
+		this.userName = "weblogic";
+		this.nodeOneIP = "144.21.81.76";
+		this.nodeOnePassword = "Khoda110";
 		this.httpPort = "80";
 	}
 	
