@@ -1,0 +1,1 @@
+32 identical images are processed in a pipeline, to inspect the behavior of the framework in local and remote modes with regular/stable workload

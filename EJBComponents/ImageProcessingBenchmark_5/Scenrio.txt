@@ -1,0 +1,1 @@
+Pipeline processing of images with different sizes in an mixed order, in order to inspect and compare the behavior of framework in local and remote modes with respect to irregular/mixed workload. The overall behavior is then compared with that of the regular workload, to see if the overall behavior of the framework in different situations is stable and reliable. 

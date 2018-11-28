@@ -105,7 +105,9 @@ public class Statistics {
 		long remainingMilliSeconds = timeInMilliSeconds % 60000;
 		
 		long seconds = remainingMilliSeconds / 1000;
-		String strSecs = (seconds > 9) ? Long.toString(seconds) : ("0" + Long.toString(seconds));
+		
+		long secondsWRTMinutes = (seconds * 100) / 60;
+		String strSecs = (secondsWRTMinutes > 9) ? Long.toString(secondsWRTMinutes) : ("0" + Long.toString(secondsWRTMinutes));
 		
 		String strTime = strMins + "." + strSecs;
 		return strTime;
