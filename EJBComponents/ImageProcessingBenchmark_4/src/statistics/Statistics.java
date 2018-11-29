@@ -14,12 +14,13 @@ public class Statistics {
 	private String[] benchmarkModes = null;
 	private String statsFolderName = null;
 	private String benchmarkName = null;
-	private String overallTime = "";
+	private String overallTimeMinutes = "";
+	private String overallTimeSeconds = "";
 	private String[] recordsPerImage = null;
 			
 	public Statistics(String benchmarkName, String imageName) {
 		
-		String[] temp = {"OverallRuntime", "Image Preparation Time", "Averge prep. time for each sub-image", 
+		String[] temp = {"Overall runtime in minutes", "Overall runtime in seconds", "Averge prep. time for each sub-image", 
 				"Average filter time for each sub-image", "Start time", "End time"};
 		
 		int size = temp.length + 1;
@@ -82,7 +83,8 @@ public class Statistics {
 	
 	
 	public void setOverallTime(long overallTime) {
-		this.overallTime = getTimeInString(overallTime);
+		this.overallTimeMinutes = getTimeInString(overallTime);
+		this.overallTimeSeconds = Long.toString(overallTime);
 	}
 	
 	private String getTimeInString(long timeInMilliSeconds) {
@@ -126,9 +128,8 @@ public class Statistics {
 		String averagePrepTime = Long.toString(averageTimes[0]);
 		String averageFilterTime = Long.toString(averageTimes[1]);
 
-		String imagePrepTime = overallLog.get(0);
-		String startTime = overallLog.get(1);
-		String endTime = overallLog.get(2);
+		String startTime = overallLog.get(0);
+		String endTime = overallLog.get(1);
 
 		int numberOfRecordsPerImage = recordsPerImage.length + 1; // extra one for an additional space before each image record
 		int offset = (imageIndex - 1) * numberOfRecordsPerImage;
@@ -150,18 +151,18 @@ public class Statistics {
 			}				
 			
 			record = reader.readLine();
-			if(record.isEmpty()) { //this is the first time that the stats of this image are being recorded
-				records.add("\n");
+			if(record == null) { //this is the first time that the stats of this image are being recorded
+				records.add("");
 				//1. record the number of sub-images
 				record = recordsPerImage[0] + ";" + numberOfSubImages + ";";
 				records.add(record);
 				
-				//2. record the overall runtime
-				record = recordsPerImage[1] + ";" + overallTime + ";";
+				//2. record the overall runtime in minutes
+				record = recordsPerImage[1] + ";" + overallTimeMinutes + ";";
 				records.add(record);
 				
-				//3. record the preparation time for this image
-				record = recordsPerImage[2] + ";" + imagePrepTime + ";";
+				//3. record the overall runtime in seconds
+				record = recordsPerImage[2] + ";" + overallTimeSeconds + ";";
 				records.add(record);
 				
 				//4. record the average prep. time for each sub-image of this image
@@ -181,18 +182,22 @@ public class Statistics {
 				records.add(record);
 			}
 			else { // these are the information for subsequent sub-images.
+				   // remember that the first line that has been read is a blank space.
+				records.add(record);
+				
 				//1. record the number of sub-images
+				record = reader.readLine(); 
 				record += numberOfSubImages + ";";
 				records.add(record);
 				
-				//2. record the overall time
+				//2. record the overall time in minutes
 				record = reader.readLine();
-				record += overallTime + ";";
+				record += overallTimeMinutes + ";";
 				records.add(record);
 				
-				//3. record the preparation time for this image
+				//3. record the overall time in seconds
 				record = reader.readLine();
-				record += imagePrepTime + ";";
+				record += overallTimeSeconds + ";";
 				records.add(record);
 				
 				//4. record the average prep. time for each sub-image of this image
@@ -214,8 +219,7 @@ public class Statistics {
 				record = reader.readLine();
 				record += endTime + ";";
 				records.add(record);				
-			}			
-			
+			}					
 			reader.close();
 		}catch(Exception e) {
 			e.printStackTrace();

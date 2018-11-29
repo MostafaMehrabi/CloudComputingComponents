@@ -15,8 +15,8 @@ import pt.runtime.TaskIDGroup;
 import statistics.Statistics;
 
 public class Main {
-	private static 	int numberOfSubImages = 16;
-	private static int imageIndex = 1;
+	private static 	int numberOfSubImages = 10;
+	private static int imageIndex = 2;
 	private static int numberOfThreads = 8;
 	
 	private static TaskIDGroup<Image> futureGroup = null;
@@ -41,7 +41,7 @@ public class Main {
 		statistics = new Statistics(benchmarkName, imageName);
 
 		//for now we only have the two modes, third mode must be implemented.
-		for(int modeNumber = 1; modeNumber <= 1; modeNumber++) {
+		for(int modeNumber = 0; modeNumber < 1; modeNumber++) {
 			
 			if(modeNumber == 0)
 				benchmarkMode = Mode.Local;
