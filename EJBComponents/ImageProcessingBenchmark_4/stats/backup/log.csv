@@ -1,0 +1,41 @@
+sep=;
+
+image1.jpg;1;2;
+Overall runtime in minutes;00.83;00.50;
+Overall runtime in seconds;50057;30476;
+Averge prep. time for each sub-image;7116;3598;
+Average filter time for each sub-image;34716;17340;
+Start time;13:39:33;13:40:42;
+End time;13:40:23;13:41:13;
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+
+image5.jpg;1;
+Overall runtime in minutes;12.31;
+Overall runtime in seconds;739333;
+Averge prep. time for each sub-image;108268;
+Average filter time for each sub-image;538663;
+Start time;13:41:39;
+End time;13:53:58;
